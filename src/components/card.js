@@ -55,8 +55,9 @@ const cardAppender = (selector) => {
   .then(resp => {
     for (let key in resp.data.articles) {
       for (let key1 in resp.data.articles[key]){
-        console.log(resp.data.articles[key])
-       document.querySelector(selector).appendChild(Card(key1));
+        console.log('iammmmm');
+        console.log(resp.data.articles[key][key1]);
+       document.querySelector(selector).appendChild(Card(resp.data.articles[key][key1]));
         
     }
     }
