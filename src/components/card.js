@@ -50,13 +50,15 @@ const Card = (article) => {
 const cardAppender = (selector) => {
 
   
-  let obj={};
+  
   axios.get(`http://localhost:5000/api/articles`)
   .then(resp => {
-    for (key in resp.data.articles){
-      const call= Card(obj); 
-        document.querySelector(selector).appendChild(call);
-        console.log(resp.data.articles[i])
+    for (let key in resp.data.articles) {
+      for (let key1 in resp.data.articles[key]){
+        console.log(resp.data.articles[key])
+       document.querySelector(selector).appendChild(Card(key1));
+        
+    }
     }
    
    // for(let i = 0; i< 5; i++){
@@ -72,7 +74,7 @@ const cardAppender = (selector) => {
     //  authorPhoto: resp.data.articles.authorPhoto,
      //  authorName: resp.data.articles.authorName,
      //} 
-         
+  }  )
    
     .catch(err => {
       console.error(err);
