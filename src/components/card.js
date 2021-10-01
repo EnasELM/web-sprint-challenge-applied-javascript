@@ -1,3 +1,4 @@
+import axios from "axios";
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,9 +18,64 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  //CREATE ELEMENT
+  const cardE = document.createElement('div');
+  const headlineE = document.createElement('div');
+  const authorE = document.createElement('div');
+  const imgContE = document.createElement('div');
+  const imgE = document.createElement('img');
+  const authorNameE = document.createElement('span');
+
+  // CREATE CLASS
+  cardE.classList.add('card');
+  headlineE.classList.add('headline');
+  authorE.classList.add('author');
+  imgContE.classList.add('img-container');
+
+  //APPENDCHILD
+  cardE.appendChild(headlineE);
+  cardE.appendChild(authorE);
+  authorE.appendChild(imgContE);
+  authorE.appendChild(authorNameE);
+  imgContE.appendChild(imgE);
+
+  //ASSIGN VALUE 
+  headlineE.textContent = article.headline;
+  imgE.src = article.authorPhoto;
+  authorNameE.textContent=`By ${article.authorName}`;
+  return cardE;
+
 }
 
 const cardAppender = (selector) => {
+
+  
+  let obj={};
+  axios.get(`http://localhost:5000/api/articles`)
+  .then(resp => {
+    
+   
+    for(let i = 0; i< 5; i++){
+         obj = resp.data.articles;
+         console.log(obj);
+        const call= Card(obj); 
+        document.querySelector(selector).appendChild(call);
+       // console.log(resp.data.articles[i]);
+       
+      } 
+     })
+    // {headline: resp.data.articles.headline,
+    //  authorPhoto: resp.data.articles.authorPhoto,
+     //  authorName: resp.data.articles.authorName,
+     //} 
+         
+   
+    .catch(err => {
+      console.error(err);
+    })
+  
+ 
+   
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.

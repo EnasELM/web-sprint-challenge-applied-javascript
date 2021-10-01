@@ -21,7 +21,7 @@ const Tabs = (topics) => {
     if (tabE3.textContent===''){
       tabE3.style.visibility = 'hidden';
     }
-     console.log(tabE3.textContent);
+     
     //APPEND CHILD
     //topicsE.appendChild(tabE1);
     //topicsE.appendChild(tabE2);
