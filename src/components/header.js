@@ -28,7 +28,13 @@ const Header = (title, date, temp) => {
   dateE.textContent=`${date}`;
   titleE.textContent=`${title}`;
   tempE.textContent=`${temp}`;
-  console.log( `${date} ${title} ${temp}`);
+
+  //appendchild
+  headerE.appendChild(dateE);
+  headerE.appendChild(titleE);
+  headerE.appendChild(tempE);
+
+  
   return headerE;
 }
 
@@ -41,7 +47,8 @@ const headerAppender = (selector) => {
   //
   
   const newEL = Header('sprint','friday','eee');
-   document.querySelector(selector).appendChild(newEL); 
+  document.querySelector(selector).appendChild(newEL);
+    
 }
 
 export { Header, headerAppender }
