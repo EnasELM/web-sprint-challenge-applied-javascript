@@ -56,25 +56,11 @@ const cardAppender = (selector) => {
     for (let key in resp.data.articles) {
       for (let key1 in resp.data.articles[key]){
         
-        console.log(resp.data.articles[key][key1]);
        document.querySelector(selector).appendChild(Card(resp.data.articles[key][key1]));
         
     }
     }
    
-   // for(let i = 0; i< 5; i++){
-        // obj = resp.data.articles;
-         //console.log(obj);
-        //const call= Card(obj); 
-        //document.querySelector(selector).appendChild(call);
-       // console.log(resp.data.articles[i]);
-       
-     // } 
-     //})
-    // {headline: resp.data.articles.headline,
-    //  authorPhoto: resp.data.articles.authorPhoto,
-     //  authorName: resp.data.articles.authorName,
-     //} 
   }  )
    
     .catch(err => {

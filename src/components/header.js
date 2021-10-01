@@ -46,7 +46,7 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
   
-  const newEL = Header('sprint','friday','eee');
+  const newEL = Header('sprint','March,5th,1986','12');
   document.querySelector(selector).appendChild(newEL);
     
 }
