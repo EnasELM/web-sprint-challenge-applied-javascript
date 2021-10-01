@@ -53,17 +53,21 @@ const cardAppender = (selector) => {
   let obj={};
   axios.get(`http://localhost:5000/api/articles`)
   .then(resp => {
-    
-   
-    for(let i = 0; i< 5; i++){
-         obj = resp.data.articles;
-         console.log(obj);
-        const call= Card(obj); 
+    for (key in resp.data.articles){
+      const call= Card(obj); 
         document.querySelector(selector).appendChild(call);
+        console.log(resp.data.articles[i])
+    }
+   
+   // for(let i = 0; i< 5; i++){
+        // obj = resp.data.articles;
+         //console.log(obj);
+        //const call= Card(obj); 
+        //document.querySelector(selector).appendChild(call);
        // console.log(resp.data.articles[i]);
        
-      } 
-     })
+     // } 
+     //})
     // {headline: resp.data.articles.headline,
     //  authorPhoto: resp.data.articles.authorPhoto,
      //  authorName: resp.data.articles.authorName,
